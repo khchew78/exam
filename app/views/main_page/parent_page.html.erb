@@ -1,0 +1,47 @@
+<h1>Welcome to Kiddoy</h1>
+
+<h3>Hi <%= session[:parent_name] %>, below are your children portfolio and result in our kindergarten</h3>
+  
+<% @students.each do |student| %>
+  <% if student.id == session[:parent_student_id] %>
+    <table class="table table-striped">
+      <tr>
+           <th style="width:20%">Name</th>
+           <th style="width:20%">Adress</th>
+           <th style="width:10%">Age</th>
+           <th style="width:20%">Gender</th>
+           <th style="width:15%">Weight</th>
+           <th style="width:15%">Height</th>
+      </tr>
+         
+      <tr>
+               <td><%= student.name %></td>
+               <td><%= student.address %></td>
+               <td><%= student.age %></td>
+               <td><%= student.gender %></td>
+               <td><%= student.weight %></td>
+               <td><%= student.height %></td>
+      </tr>
+    </table><br>
+    <h3>Result</h3><br>
+    <table class="table table-striped">
+      <tr>
+           <th style="width:10%">English</th>
+           <th style="width:10%">Malay</th>
+           <th style="width:10%">Chinese</th>
+           <th style="width:10%">Mathematic</th>
+           <th style="width:10%">Conduct</th>
+           <th style="width:50%">Comment</th>
+      </tr>
+         
+      <tr>
+               <td><%= student.english %></td>
+               <td><%= student.malay %></td>
+               <td><%= student.chinese %></td>
+               <td><%= student.math %></td>
+               <td><%= student.conduct %></td>
+               <td><%= student.comment %></td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>

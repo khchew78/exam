@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @teacher.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @teacher.age %>
+</p>
+
+<p>
+  <strong>Qualification:</strong>
+  <%= @teacher.qualification %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @teacher.salary %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @teacher.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @teacher.password %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @teacher.branch %>
+</p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @teacher.branch_id %>
+</p>
+
+<hr></hr>
+<h2>classroom for teacher</h2>
+<%= form_with(url: create_teacher_classroom_teachers_path, model: TeacherClassroom.new(teacher_id: @teacher.id), local: true) do |form| %>
+  
+  <div class="field">
+    <%= form.hidden_field :teacher_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :classroom_id %>
+    <%= form.select :classroom_id, Classroom.order(:name).map { |classroom| [ classroom.name, classroom.id ] }, include_blank: "Please select classroom" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path %>

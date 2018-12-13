@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  age: MyString
+  gender: MyString
+  address: MyString
+  weight: MyString
+  height: MyString
+  branch: MyString
+  brach_id: MyString
+  english: MyString
+  malay: MyString
+  chinese: MyString
+  math: MyString
+  conduct: MyString
+  comment: MyString
+
+two:
+  name: MyString
+  age: MyString
+  gender: MyString
+  address: MyString
+  weight: MyString
+  height: MyString
+  branch: MyString
+  brach_id: MyString
+  english: MyString
+  malay: MyString
+  chinese: MyString
+  math: MyString
+  conduct: MyString
+  comment: MyString

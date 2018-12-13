@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Kindergartens</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Branch</th>
+      <th>Branch</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kindergartens.each do |kindergarten| %>
+      <tr>
+        <td><%= kindergarten.name %></td>
+        <td><%= kindergarten.branch %></td>
+        <td><%= kindergarten.branch_id %></td>
+        <td><%= link_to 'Show', kindergarten %></td>
+        <td><%= link_to 'Edit', edit_kindergarten_path(kindergarten) %></td>
+        <td><%= link_to 'Destroy', kindergarten, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Kindergarten', new_kindergarten_path %>

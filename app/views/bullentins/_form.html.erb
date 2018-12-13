@@ -1,0 +1,32 @@
+<%= form_with(model: bullentin, local: true) do |form| %>
+  <% if bullentin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bullentin.errors.count, "error") %> prohibited this bullentin from being saved:</h2>
+
+      <ul>
+      <% bullentin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :topis %>
+    <%= form.text_field :topis %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.text_field :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

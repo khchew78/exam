@@ -1,0 +1,80 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @student.age %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @student.gender %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @student.address %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @student.weight %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @student.height %>
+</p>
+
+<p>
+  <strong>Classroom:</strong>
+  <%= @student.classroom.name %>
+</p>
+
+
+<p>
+  <strong>Branch:</strong>
+  <%= @student.branch %>
+</p>
+
+<!--<p>-->
+<!--  <strong>Branch:</strong>-->
+<!--  <%#= @student.brach_id %>-->
+<!--</p>-->
+
+<p>
+  <strong>English:</strong>
+  <%= @student.english %>
+</p>
+
+<p>
+  <strong>Malay:</strong>
+  <%= @student.malay %>
+</p>
+
+<p>
+  <strong>Chinese:</strong>
+  <%= @student.chinese %>
+</p>
+
+<p>
+  <strong>Math:</strong>
+  <%= @student.math %>
+</p>
+
+<p>
+  <strong>Conduct:</strong>
+  <%= @student.conduct %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @student.comment %>
+</p>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

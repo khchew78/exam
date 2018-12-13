@@ -1,0 +1,27 @@
+<br>
+<%#= image_tag('WelcomeKiddoy.png') %>
+
+<div style="width:90%";"margin:auto">
+<h1 style="color:SlateBlue; text-align: center; font-family:Arial Black; font-size: 30px;">PARENT LOGIN</h1>
+<br>
+<div class="center-align">
+  <%= form_tag "/parent/login" do %>
+
+  <label>Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= text_field_tag "email" %>
+  
+  <br>
+  
+  <label>Password</label>&nbsp;&nbsp;
+  <%= password_field_tag "password" %>
+  
+  <br>
+  
+  <%= submit_tag "Login" %>
+</div>
+
+  <%#= image_tag('happykid.jpg') %>
+
+<% end %>
+
+</div>

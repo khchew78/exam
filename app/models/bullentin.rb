@@ -1,0 +1,2 @@
+class Bullentin < ApplicationRecord
+end

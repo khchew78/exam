@@ -1,0 +1,37 @@
+<%= form_with(model: classroom, local: true) do |form| %>
+  <% if classroom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(classroom.errors.count, "error") %> prohibited this classroom from being saved:</h2>
+
+      <ul>
+      <% classroom.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :branch %>
+    <%= form.text_field :branch, value: session[:licensee_branch_name] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :branch_id %>
+    <%= form.text_field :branch_id, value: session[:licensee_branch_id] %>
+  </div>
+  
+  <div class="field">
+      <%= form.label :teacher_id %>
+      <%= form.select :teacher_id, Teacher.all.map {|teacher| [teacher.name, teacher.id] }, { include_blank: "Please select your branch name" } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

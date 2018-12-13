@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Licensees</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Branch</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @licensees.each do |licensee| %>
+      <tr>
+        <td><%= licensee.name %></td>
+        <td><%= licensee.email %></td>
+        <td><%= licensee.password %></td>
+        <td><%= licensee.branch.name %></td>
+        <td><%= link_to 'Show', licensee %></td>
+        <td><%= link_to 'Edit', edit_licensee_path(licensee) %></td>
+        <td><%= link_to 'Destroy', licensee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Licensee', new_licensee_path %>
