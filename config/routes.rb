@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tests
+  resources :subjects
   resources :bullentins
   resources :parents
   resources :students

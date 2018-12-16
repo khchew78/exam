@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_13_120018) do
+ActiveRecord::Schema.define(version: 2018_12_16_054554) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,30 +40,26 @@ ActiveRecord::Schema.define(version: 2018_12_13_120018) do
     t.string "name", null: false
     t.string "branch"
     t.string "branch_id"
-    t.bigint "teacher_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teacher_id"], name: "index_classrooms_on_teacher_id"
   end
 
   create_table "licensees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
     t.string "password", null: false
-    t.bigint "branch_id", null: false
+    t.string "branch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["branch_id"], name: "index_licensees_on_branch_id"
   end
 
   create_table "parents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "password"
-    t.bigint "student_id", null: false
+    t.string "branch_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["student_id"], name: "index_parents_on_student_id"
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,17 +70,17 @@ ActiveRecord::Schema.define(version: 2018_12_13_120018) do
     t.string "weight"
     t.string "height"
     t.string "branch"
-    t.string "brach_id"
-    t.string "english"
-    t.string "malay"
-    t.string "chinese"
-    t.string "math"
-    t.string "conduct"
-    t.string "comment"
-    t.bigint "classroom_id", null: false
+    t.string "branch_id"
+    t.string "classroom_id"
+    t.string "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["classroom_id"], name: "index_students_on_classroom_id"
+  end
+
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teacher_classrooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -109,10 +105,14 @@ ActiveRecord::Schema.define(version: 2018_12_13_120018) do
     t.string "password"
   end
 
-  add_foreign_key "classrooms", "teachers"
-  add_foreign_key "licensees", "branches"
-  add_foreign_key "parents", "students"
-  add_foreign_key "students", "classrooms"
+  create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "branch_id"
+    t.string "title"
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "teacher_classrooms", "classrooms"
   add_foreign_key "teacher_classrooms", "teachers"
 end

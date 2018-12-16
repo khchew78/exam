@@ -7,7 +7,6 @@
     <tr>
       <th>Name</th>
       <th>Teacher</th>
-      <th>Branch</th>
       <th>Branch ID</th>
       <th colspan="3"></th>
     </tr>
@@ -19,10 +18,9 @@
         <td><%= classroom.name %></td>
         <td>
           <% classroom.teacher_classrooms.each do |teacher_classroom| %>
-            <%= teacher_classroom.teacher.name %>
+            <%= teacher_classroom.teacher.name %>, 
           <% end %>
         </td>
-        <td><%= classroom.branch %></td>
         <td><%= classroom.branch_id %></td>
         <td><%= link_to 'Show', classroom %></td>
         <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
