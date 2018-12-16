@@ -17,18 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :branch %>
-    <%= form.text_field :branch, value: session[:licensee_branch_name] %>
-  </div>
-
-  <div class="field">
-    <%= form.label :branch_id %>
-    <%= form.text_field :branch_id, value: session[:licensee_branch_id] %>
-  </div>
-  
-  <div class="field">
-      <%= form.label :teacher_id %>
-      <%= form.select :teacher_id, Teacher.all.map {|teacher| [teacher.name, teacher.id] }, { include_blank: "Please select your branch name" } %>
+      <%= form.label :branch_id %>
+      <%= form.select :branch_id, Branch.all.map {|branch| [branch.name, branch.id] }, { include_blank: "Please select your branch name" } %>
   </div>
 
   <div class="actions">

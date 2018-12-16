@@ -4,8 +4,8 @@ class CreateParents < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :email
       t.string :password
-      t.references :student, foreign_key: true, null: false
-
+      t.string :branch_id
+     
       t.timestamps
     end
   end
