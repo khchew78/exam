@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :examinations
+  resources :results
   resources :photo_galleries
   resources :tests
   resources :subjects
@@ -8,6 +10,10 @@ Rails.application.routes.draw do
   resources :teachers do
     collection  do
       post :create_teacher_classroom
+    end
+    
+    collection  do
+      post :create_teacher_subject
     end
   end
   resources :kindergartens

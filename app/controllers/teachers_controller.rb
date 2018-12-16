@@ -69,6 +69,15 @@ class TeachersController < ApplicationController
       redirect_to @teacher_classroom.teacher, notice: 'Teacher classroom was not successfully saved.'
     end
   end
+  
+  def create_teacher_subject
+    @teacher_subject = TeacherSubject.new(teacher_subject_params)
+    if @teacher_subject.save
+      redirect_to @teacher_subject.teacher, notice: 'Teacher subject was successfully saved.'
+    else
+      redirect_to @teacher_subject.teacher, notice: 'Teacher subject was not successfully saved.'
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -83,5 +92,9 @@ class TeachersController < ApplicationController
     
     def teacher_classroom_params
       params.require(:teacher_classroom).permit(:classroom_id, :teacher_id,)
+    end
+    
+     def teacher_subject_params
+      params.require(:teacher_subject).permit(:subject_id, :teacher_id,)
     end
 end

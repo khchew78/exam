@@ -13,6 +13,7 @@
       <th>Password</th>
       <th>Branch id</th>
       <th>Classrooms</th>
+      <th>Subjects</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,6 +31,11 @@
         <td>
           <% teacher.teacher_classrooms.each do |teacher_classroom| %>
             <%= teacher_classroom.classroom.name %>,
+          <% end %>
+        </td>
+        <td>
+          <% teacher.teacher_subjects.each do |teacher_subject| %>
+            <%= teacher_subject.subject.title %>,
           <% end %>
         </td>
         <td><%= link_to 'Show', teacher %></td>

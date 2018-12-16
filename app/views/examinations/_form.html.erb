@@ -1,10 +1,10 @@
-<%= form_with(model: test, local: true) do |form| %>
-  <% if test.errors.any? %>
+<%= form_with(model: examination, local: true) do |form| %>
+  <% if examination.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(test.errors.count, "error") %> prohibited this test from being saved:</h2>
+      <h2><%= pluralize(examination.errors.count, "error") %> prohibited this examination from being saved:</h2>
 
       <ul>
-      <% test.errors.full_messages.each do |message| %>
+      <% examination.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>

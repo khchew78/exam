@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  test_id: MyString
+  subkect_id: MyString
+  student_id: MyString
+  result: MyString
+
+two:
+  test_id: MyString
+  subkect_id: MyString
+  student_id: MyString
+  result: MyString

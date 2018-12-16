@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_13_150450) do
+ActiveRecord::Schema.define(version: 2018_12_16_115406) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 2018_12_13_150450) do
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
-ActiveRecord::Schema.define(version: 2018_12_16_054554) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -66,6 +65,14 @@ ActiveRecord::Schema.define(version: 2018_12_16_054554) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "examinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "branch_id"
+    t.string "title"
+    t.string "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "licensees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
@@ -87,6 +94,15 @@ ActiveRecord::Schema.define(version: 2018_12_16_054554) do
   create_table "photo_galleries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "activity"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "examination_id"
+    t.string "subject_id"
+    t.string "student_id"
+    t.string "result"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -121,6 +137,13 @@ ActiveRecord::Schema.define(version: 2018_12_16_054554) do
     t.index ["teacher_id"], name: "index_teacher_classrooms_on_teacher_id"
   end
 
+  create_table "teacher_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "teacher_id"
+    t.string "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "age", null: false
@@ -134,12 +157,6 @@ ActiveRecord::Schema.define(version: 2018_12_16_054554) do
     t.string "password"
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "classrooms", "teachers"
-  add_foreign_key "licensees", "branches"
-  add_foreign_key "parents", "students"
-  add_foreign_key "students", "classrooms"
-  
   create_table "tests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "branch_id"
     t.string "title"
@@ -148,6 +165,7 @@ ActiveRecord::Schema.define(version: 2018_12_16_054554) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "teacher_classrooms", "classrooms"
   add_foreign_key "teacher_classrooms", "teachers"
 end
