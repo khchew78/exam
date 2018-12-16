@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :photo_galleries
   resources :tests
   resources :subjects
   resources :bullentins

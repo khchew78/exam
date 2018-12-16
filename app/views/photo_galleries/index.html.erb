@@ -1,0 +1,33 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  
+  <h1>Photo Galleries</h1>
+  
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Activity</th>
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @photo_galleries.each do |photo_gallery| %>
+        <tr>
+          <td><%= image_tag photo_gallery.image.variant(resize: "200x200") if photo_gallery.image.attached? %></td>
+          <td><%= photo_gallery.activity %></td>
+          <td><%= photo_gallery.description %></td>
+          <td><%= link_to 'Show', photo_gallery %></td>
+          <td><%= link_to 'Edit', edit_photo_gallery_path(photo_gallery) %></td>
+          <td><%= link_to 'Destroy', photo_gallery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+  <p class="center_text"><%= link_to 'New Photo Gallery', new_photo_gallery_path %></p>
+</div>

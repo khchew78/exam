@@ -1,0 +1,24 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  
+  <table class="table table-dark table-hover">
+    <tr>
+      <th>Activity</th>
+      <td><%= @photo_gallery.activity %></td>
+    </tr>
+    
+    <tr>
+      <th>Description</th>
+      <td><%= @photo_gallery.description %></td>
+    </tr>
+    
+    <tr>
+      <th>Photo</th>
+      <td><%= image_tag @photo_gallery.image.variant(resize: "200x200") if@photo_gallery.image.attached? %></td>
+    </tr>
+  </table>
+  
+  
+  <%= link_to 'Edit', edit_photo_gallery_path(@photo_gallery) %> |
+  <%= link_to 'Back', photo_galleries_path %>
+</div>
