@@ -3,4 +3,5 @@ class Branch < ApplicationRecord
     has_many :classrooms
     has_many :students
     has_many :parents
+    has_many :examinations
 end

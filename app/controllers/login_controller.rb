@@ -84,7 +84,6 @@ class LoginController < ApplicationController
       flash[:notice] = "You are signed in as parent successfully"
       session[:parent_id] = parent.id
       session[:parent_name] = parent.name
-      session[:parent_student_id] = parent.student_id
       redirect_to parent_page_main_page_index_path
     else
       flash[:alert] = "Email and passwords is incorrect"
@@ -95,7 +94,6 @@ class LoginController < ApplicationController
   def destroy_parent_session
     session[:parent_id] = nil
     session[:parent_name] = nil
-    session[:parent_student_id] = nil
     flash[:notice] = "You are signed out successfully"
     redirect_to parent_login_path
   end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Branch:</strong>
+  <%= @examination.branch_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @examination.title %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @examination.year %>
+</p>
+
+<%= link_to 'Edit', edit_examination_path(@examination) %> |
+<%= link_to 'Back', examinations_path %>
