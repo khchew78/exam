@@ -1,3 +1,4 @@
 class Parent < ApplicationRecord
-    belongs_to :student
+    belongs_to :branch
+    has_many :students
 end

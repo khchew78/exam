@@ -42,48 +42,18 @@
   </div>
   
   <div class="field">
+      <%= form.label :branch_id %>
+      <%= form.select :branch_id, Branch.all.map {|branch| [branch.name, branch.id] }, { include_blank: "Please select your branch name" } %>
+  </div>
+  
+  <div class="field">
       <%= form.label :classroom_id %>
       <%= form.select :classroom_id, Classroom.all.map {|classroom| [classroom.name, classroom.id] }, { include_blank: "Please select your classroom" } %>
   </div>
 
   <div class="field">
-    <%= form.label :branch %>
-    <%= form.text_field :branch, value: session[:licensee_branch_name] %>
-  </div>
-
-  <!--<div class="field">-->
-  <!--  <%#= form.label :brach_id %>-->
-  <!--  <#%= form.text_field :brach_id, value: session[:licensee_branch_id] %>-->
-  <!--</div>-->
-
-  <div class="field">
-    <%= form.label :english %>
-    <%= form.text_field :english %>
-  </div>
-
-  <div class="field">
-    <%= form.label :malay %>
-    <%= form.text_field :malay %>
-  </div>
-
-  <div class="field">
-    <%= form.label :chinese %>
-    <%= form.text_field :chinese %>
-  </div>
-
-  <div class="field">
-    <%= form.label :math %>
-    <%= form.text_field :math %>
-  </div>
-
-  <div class="field">
-    <%= form.label :conduct %>
-    <%= form.text_field :conduct %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_field :comment %>
+      <%= form.label :parent_id %>
+      <%= form.select :parent_id, Parent.all.map {|parent| [parent.name, parent.id] }, { include_blank: "Please select your parent name" } %>
   </div>
 
   <div class="actions">

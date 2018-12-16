@@ -8,6 +8,7 @@
       <th>Name</th>
       <th>Email</th>
       <th>Password</th>
+      <th>Branch</th>
       <th>Children</th>
       <th colspan="3"></th>
     </tr>
@@ -19,7 +20,12 @@
         <td><%= parent.name %></td>
         <td><%= parent.email %></td>
         <td><%= parent.password %></td>
-        <td><%= parent.student.name %></td>
+        <td><%= parent.branch_id %></td>
+        <td>
+          <% parent.students.each do |student| %>
+            <%= student.name %>,
+          <% end %>
+        </td>
         <td><%= link_to 'Show', parent %></td>
         <td><%= link_to 'Edit', edit_parent_path(parent) %></td>
         <td><%= link_to 'Destroy', parent, method: :delete, data: { confirm: 'Are you sure?' } %></td>

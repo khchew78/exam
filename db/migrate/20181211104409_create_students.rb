@@ -8,14 +8,9 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.string :weight
       t.string :height
       t.string :branch
-      t.string :brach_id
-      t.string :english
-      t.string :malay
-      t.string :chinese
-      t.string :math
-      t.string :conduct
-      t.string :comment
-      t.references :classroom, foreign_key: true, null: false
+      t.string :branch_id
+      t.string :classroom_id
+      t.string :parent_id
 
       t.timestamps
     end

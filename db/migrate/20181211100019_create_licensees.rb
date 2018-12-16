@@ -4,7 +4,7 @@ class CreateLicensees < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :email, null: false
       t.string :password, null: false
-      t.references :branch, foreign_key: true, null: false
+      t.string :branch_id
 
       t.timestamps
     end

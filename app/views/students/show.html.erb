@@ -31,49 +31,18 @@
 </p>
 
 <p>
+  <strong>Branch:</strong>
+  <%= @student.branch_id %>
+</p>
+
+<p>
   <strong>Classroom:</strong>
   <%= @student.classroom.name %>
 </p>
 
-
 <p>
-  <strong>Branch:</strong>
-  <%= @student.branch %>
-</p>
-
-<!--<p>-->
-<!--  <strong>Branch:</strong>-->
-<!--  <%#= @student.brach_id %>-->
-<!--</p>-->
-
-<p>
-  <strong>English:</strong>
-  <%= @student.english %>
-</p>
-
-<p>
-  <strong>Malay:</strong>
-  <%= @student.malay %>
-</p>
-
-<p>
-  <strong>Chinese:</strong>
-  <%= @student.chinese %>
-</p>
-
-<p>
-  <strong>Math:</strong>
-  <%= @student.math %>
-</p>
-
-<p>
-  <strong>Conduct:</strong>
-  <%= @student.conduct %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @student.comment %>
+  <strong>Parent:</strong>
+  <%= @student.parent.name %>
 </p>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
