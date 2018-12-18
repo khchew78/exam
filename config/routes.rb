@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :parent_infomations
   resources :examinations
   resources :results
   resources :photo_galleries
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
     collection do
       get "parent_page"
       get "teacher_page"
+      get "licensee_page"
     end
   end
   

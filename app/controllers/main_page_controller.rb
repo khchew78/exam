@@ -9,4 +9,8 @@ class MainPageController < ApplicationController
   def teacher_page
     @teachers = Teacher.all
   end
+  
+  def licensee_page
+    @licensees = Licensee.all
+  end
 end

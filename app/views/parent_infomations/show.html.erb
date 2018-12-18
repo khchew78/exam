@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @parent_infomation.parent_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @parent_infomation.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @parent_infomation.age %>
+</p>
+
+<p>
+  <strong>Ic number:</strong>
+  <%= @parent_infomation.ic_number %>
+</p>
+
+<p>
+  <strong>Occupation:</strong>
+  <%= @parent_infomation.occupation %>
+</p>
+
+<p>
+  <strong>Type ID:</strong>
+  <%= @parent_infomation.type_id %>
+</p>
+
+<%= link_to 'Edit', edit_parent_infomation_path(@parent_infomation) %> |
+<%= link_to 'Back', parent_infomations_path %>

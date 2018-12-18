@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Teachers</h1>
+<h1>Staffs</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Age</th>
-      <th>Qualification</th>
-      <th>Salary</th>
       <th>Email</th>
       <th>Password</th>
+      <th>Type ID</th>
       <th>Branch id</th>
       <th>Classrooms</th>
       <th>Subjects</th>
@@ -22,11 +20,9 @@
     <% @teachers.each do |teacher| %>
       <tr>
         <td><%= teacher.name %></td>
-        <td><%= teacher.age %></td>
-        <td><%= teacher.qualification %></td>
-        <td><%= teacher.salary %></td>
         <td><%= teacher.email %></td>
         <td><%= teacher.password %></td>
+        <td><%= teacher.type_id %></td>
         <td><%= teacher.branch_id %></td>
         <td>
           <% teacher.teacher_classrooms.each do |teacher_classroom| %>
@@ -48,4 +44,4 @@
 
 <br>
 
-<%= link_to 'New Teacher', new_teacher_path %>
+<%= link_to 'New Staff', new_teacher_path %>
