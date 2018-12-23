@@ -1,0 +1,67 @@
+<div class="container-fluid">
+
+  <div class="row" data-turbolinks="false">
+    <div class="col-lg-2" id="category" style="background-color: green">
+      
+    </div>
+
+    <div class="col-lg-8">
+      <h1 style="color:blue">Welcome to Kiddoy</h1><br>
+
+      <h3>Hi <%= session[:admin_name] %><br><br>
+      
+      <h3 style="color:blue">CATEGORY</h3>
+      <div>
+        <table>
+        <tr>
+          <th style="width:25%"></th>
+          <th style="width:25%"></th>
+          <th style="width:25%"></th>
+          <th style="width:25%"></th>
+        </tr>
+        
+        <tr>
+          <td><%= link_to 'Admin', admins_path %></td>
+          <td><%= link_to 'Branch', branches_path %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td><%= link_to 'Bullentin', bullentins_path %></td>
+          <td><%= link_to 'Photo Gallery', photo_galleries_path %></td>
+          <td></td>
+          <td></td>
+        </tr>
+
+        <tr>
+          <td><%= link_to 'Staff', teachers_path %></td>
+          <td><%= link_to 'Student', students_path %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td><%= link_to 'Parent', parents_path %></td>
+          <td><%= link_to 'Classroom', classrooms_path %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td><%= link_to 'Subject', subjects_path %></td>
+          <td><%= link_to 'Examination', examinations_path %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td><%= link_to 'Result', results_path %></td>
+          <td><%= link_to "Logout", "/admin/logout", data: { method: :delete } %></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </div>
+    </div>
+  </div>
+</div>

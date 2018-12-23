@@ -25,23 +25,13 @@
   <%= @teacher.branch_id %>
 </p>
 
-<hr></hr>
-<h2>classroom for teacher</h2>
-<%= form_with(url: create_teacher_classroom_teachers_path, model: TeacherClassroom.new(teacher_id: @teacher.id), local: true) do |form| %>
-  
-  <div class="field">
-    <%= form.hidden_field :teacher_id %>
-  </div>
+<p>
+  <strong>classroom:</strong>
+  <% @teacher.classroom_ids.each do |classroom_id| %>
+            <%= classroom_id %>,
+          <% end %>
+</p>
 
-  <div class="field">
-    <%= form.label :classroom_id %>
-    <%= form.select :classroom_id, Classroom.order(:name).map { |classroom| [ classroom.name, classroom.id ] }, include_blank: "Please select classroom" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
 
 <hr></hr>
 <h2>Subject for teacher</h2>

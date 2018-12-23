@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get "parent_page"
       get "teacher_page"
       get "licensee_page"
+      get "admin_page"
     end
   end
   

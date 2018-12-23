@@ -37,7 +37,7 @@ class LoginController < ApplicationController
     if admin.present?
       flash[:notice] = "You are signed in as admin successfully"
       session[:admin_id] = admin.id
-      redirect_to admins_path
+      redirect_to admin_page_main_page_index_path
     else
       flash[:alert] = "Email and passwords is incorrect"
       redirect_to action: :admin_login
