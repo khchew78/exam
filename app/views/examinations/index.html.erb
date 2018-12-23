@@ -13,19 +13,35 @@
   </thead>
 
   <tbody>
-    <% @examinations.each do |examination| %>
-      <tr>
+    <% if session[:licensee_branch_id].present? %>
+      <% @branch_examinations.each do |examination| %>
+        <tr>
         <td><%= examination.branch_id %></td>
         <td><%= examination.title %></td>
         <td><%= examination.year %></td>
         <td><%= link_to 'Show', examination %></td>
         <td><%= link_to 'Edit', edit_examination_path(examination) %></td>
         <td><%= link_to 'Destroy', examination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
+      <% end %>
+    <% else %>
+      <% @examinations.each do |examination| %>
+        <tr>
+        <td><%= examination.branch_id %></td>
+        <td><%= examination.title %></td>
+        <td><%= examination.year %></td>
+        <td><%= link_to 'Show', examination %></td>
+        <td><%= link_to 'Edit', edit_examination_path(examination) %></td>
+        <td><%= link_to 'Destroy', examination, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %> 
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Examination', new_examination_path %>
+<% if session[:licensee_branch_id].present? %>
+  <%= link_to 'Back', licensee_page_main_page_index_path %> | <%= link_to 'New Examination', new_examination_path %>
+<% else %>
+  <%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Examination', new_examination_path %>
+<% end %>

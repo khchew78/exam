@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 2018_12_18_064205) do
     t.string "name", null: false
     t.string "branch_id"
     t.string "type_id"
+    t.string "classroom_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"

@@ -19,8 +19,9 @@
   </thead>
 
   <tbody>
-    <% @students.each do |student| %>
-      <tr>
+    <% if session[:licensee_branch_id].present? %>
+      <% @branch_students.each do |student| %>
+        <tr>
         <td><%= student.name %></td>
         <td><%= student.age %></td>
         <td><%= student.gender %></td>
@@ -33,11 +34,32 @@
         <td><%= link_to 'Show', student %></td>
         <td><%= link_to 'Edit', edit_student_path(student) %></td>
         <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
+      <% end %>
+    <% else %>
+      <% @students.each do |student| %>
+        <tr>
+        <td><%= student.name %></td>
+        <td><%= student.age %></td>
+        <td><%= student.gender %></td>
+        <td><%= student.address %></td>
+        <td><%= student.weight %></td>
+        <td><%= student.height %></td>
+        <td><%= student.branch_id %></td>
+        <td><%= student.classroom.name %></td>
+        <td><%= student.parent.name %></td>
+        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to 'Edit', edit_student_path(student) %></td>
+        <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Student', new_student_path %>
+<% if session[:licensee_branch_id].present? %>
+  <%= link_to 'Back', licensee_page_main_page_index_path %> | <%= link_to 'New Student', new_student_path %>
+<% else %>
+  <%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Student', new_student_path %>
+<% end %>

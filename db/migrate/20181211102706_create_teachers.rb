@@ -4,6 +4,8 @@ class CreateTeachers < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :branch_id
       t.string :type_id
+      t.string :classroom_id
+      
 
       t.timestamps
     end

@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   
   post 'licensee/login', to: "login#create"
   get 'licensee/login', to: "login#new"
-  delete "logout", to: "login#destroy"
+  delete "licensee/logout", to: "login#destroy"
   post 'admin/login', to: "login#create_admin_session"
   get 'admin/login', to: "login#admin_login"
   delete "admin/logout", to: "login#destroy_admin_session"

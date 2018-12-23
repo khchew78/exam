@@ -14,8 +14,21 @@
   </thead>
 
   <tbody>
-    <% @results.each do |result| %>
-      <tr>
+    <!--<%# if session[:licensee_branch_id].present? %>-->
+    <!--  <%# @branch_results.each do |result| %>-->
+    <!--    <tr>-->
+    <!--    <td><%#= result.examination_id %></td>-->
+    <!--    <td><%#= result.subject_id %></td>-->
+    <!--    <td><%#= result.student_id %></td>-->
+    <!--    <td><%#= result.result %></td>-->
+    <!--    <td><%#= link_to 'Show', result %></td>-->
+    <!--    <td><%#= link_to 'Edit', edit_result_path(result) %></td>-->
+    <!--    <td><%#= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+    <!--    </tr>-->
+    <!--  <%# end %>-->
+    <!--<%# else %>-->
+      <% @results.each do |result| %>
+        <tr>
         <td><%= result.examination_id %></td>
         <td><%= result.subject_id %></td>
         <td><%= result.student_id %></td>
@@ -23,11 +36,15 @@
         <td><%= link_to 'Show', result %></td>
         <td><%= link_to 'Edit', edit_result_path(result) %></td>
         <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+        </tr>
+      <% end %>
+    <%# end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Result', new_result_path %>
+<%# if session[:licensee_branch_id].present? %>
+  <%#= link_to 'Back', licensee_page_main_page_index_path %> | <%#= link_to 'New Result', new_result_path %>
+<%# else %>
+  <%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Result', new_result_path %>
+<%# end %>
