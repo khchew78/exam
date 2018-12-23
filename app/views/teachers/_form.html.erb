@@ -39,9 +39,9 @@
  
  <div class="field">
    <%= form.label :classroom_id %><br>
-    <%= hidden_field_tag "teacher[classroom_id][]", nil %>
+    <%= hidden_field_tag "teacher[classroom_ids][]", nil %>
     <% Classroom.all.each do |classroom| %>
-      <%= check_box_tag "teacher[classroom_id][]", classroom.id, @teacher.classroom_id.include?(classroom.id), id: dom_id(classroom) %>
+      <%= check_box_tag "teacher[classroom_ids][]", classroom.id, @teacher.classroom_ids.include?(classroom.id), id: dom_id(classroom) %>
       <%= label_tag dom_id(classroom), classroom.name %><br>
     <% end %>
   </div>

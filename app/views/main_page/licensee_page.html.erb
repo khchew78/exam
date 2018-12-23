@@ -1,3 +1,74 @@
-<h1>Welcome to Kiddoy</h1>
+<div class="container-fluid">
 
-<h3>Hi <%= session[:licensee_name] %>, below are your branch detail </h3>
+  <div class="row" data-turbolinks="false">
+    <div class="col-lg-2" id="category" style="background-color: green">
+      
+    </div>
+
+    <div class="col-lg-8">
+      <h1>Welcome to Kiddoy</h1>
+
+      <h3>Hi <%= session[:licensee_name] %>, below are your branch detail </h3>
+
+      <% @branches.each do |branch| %>
+        <% if branch.id == session[:licensee_branch_id] %>
+          <p>
+            <strong>Name:</strong>
+            <%= branch.name %>
+          </p>
+
+          <p>
+            <strong>Address:</strong>
+            <%= branch.address %>
+          </p>
+
+          <p>
+            <strong>Phone:</strong>
+            <%= branch.phone %>
+          </p>
+        <% end %>
+      <% end %>
+      
+      <h3 style="color:blue">CATEGORY</h3>
+      <div>
+        <table>
+        <tr>
+          <th style="width:25%"></th>
+          <th style="width:25%"></th>
+          <th style="width:25%"></th>
+          <th style="width:25%"></th>
+        </tr>
+        
+        <tr>
+          <td><%= link_to 'Teacher', teachers_path %></td>
+          <td><%= link_to 'Student', students_path %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td><%= link_to 'Parent', parents_path %></td>
+          <td><%= link_to 'Classroom', classrooms_path %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td><%= link_to 'Examination', examinations_path %></td>
+          <td><%= link_to 'Result', results_path %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        
+        <tr>
+          <td><%= link_to "Logout", "/licensee/logout", data: { method: :delete } %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </div>
+    </div>
+  </div>
+</div>
+    
+        

@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
   # GET /teachers.json
   def index
     @teachers = Teacher.all
+    @branch_teachers = Teacher.where(branch_id: session[:licensee_branch_id])
   end
 
   # GET /teachers/1

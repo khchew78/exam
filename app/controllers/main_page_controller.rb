@@ -14,7 +14,8 @@ class MainPageController < ApplicationController
   end
   
   def licensee_page
-    @licensees = Licensee.all
+    @teacherss = Teacher.all
+    @branches = Branch.all
   end
   
   def admin_page
