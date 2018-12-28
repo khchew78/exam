@@ -1,16 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Teachers</h1>
+<h1>Staffs</h1>
 
 <table>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Age</th>
-      <th>Qualification</th>
-      <th>Salary</th>
       <th>Email</th>
       <th>Password</th>
+      <th>Type ID</th>
       <th>Branch id</th>
       <th>Classrooms</th>
       <th>Subjects</th>
@@ -19,18 +17,17 @@
   </thead>
 
   <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
+    <% if session[:licensee_branch_id].present? %>
+      <% @branch_teachers.each do |teacher| %>
+        <tr>
         <td><%= teacher.name %></td>
-        <td><%= teacher.age %></td>
-        <td><%= teacher.qualification %></td>
-        <td><%= teacher.salary %></td>
         <td><%= teacher.email %></td>
         <td><%= teacher.password %></td>
+        <td><%= teacher.type_id %></td>
         <td><%= teacher.branch_id %></td>
         <td>
-          <% teacher.teacher_classrooms.each do |teacher_classroom| %>
-            <%= teacher_classroom.classroom.name %>,
+          <% teacher.classrooms.each do |classroom| %>
+            <%= classroom.name %>,
           <% end %>
         </td>
         <td>
@@ -41,11 +38,38 @@
         <td><%= link_to 'Show', teacher %></td>
         <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
         <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
+      <% end %>
+    <% else %>
+      <% @teachers.each do |teacher| %>
+        <tr>
+        <td><%= teacher.name %></td>
+        <td><%= teacher.email %></td>
+        <td><%= teacher.password %></td>
+        <td><%= teacher.type_id %></td>
+        <td><%= teacher.branch_id %></td>
+        <td>
+          <% teacher.classrooms.each do |classroom| %>
+            <%= classroom.name %>,
+          <% end %>
+        </td>
+        <td>
+          <% teacher.teacher_subjects.each do |teacher_subject| %>
+            <%= teacher_subject.subject.title %>,
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', teacher %></td>
+        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>  
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Teacher', new_teacher_path %>
+<% if session[:licensee_branch_id].present? %>
+  <%= link_to 'Back', licensee_page_main_page_index_path %> | <%= link_to 'New Teacher', new_teacher_path %>
+<% else %>
+  <%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Teacher', new_teacher_path %>
+<% end %>

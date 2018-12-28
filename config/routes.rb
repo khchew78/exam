@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :parent_infomations
   resources :examinations
   resources :results
   resources :photo_galleries
@@ -25,12 +26,14 @@ Rails.application.routes.draw do
     collection do
       get "parent_page"
       get "teacher_page"
+      get "licensee_page"
+      get "admin_page"
     end
   end
   
   post 'licensee/login', to: "login#create"
   get 'licensee/login', to: "login#new"
-  delete "logout", to: "login#destroy"
+  delete "licensee/logout", to: "login#destroy"
   post 'admin/login', to: "login#create_admin_session"
   get 'admin/login', to: "login#admin_login"
   delete "admin/logout", to: "login#destroy_admin_session"

@@ -7,9 +7,6 @@
     <table class="table table-striped">
       <tr>
            <th style="width:20%">Name</th>
-           <th style="width:10%">Age</th>
-           <th style="width:10%">Qualification</th>
-           <th style="width:15%">Salary</th>
            <th style="width:15%">Email</th>
            <th style="width:15%">Password</th>
            <th style="width:15%">Branch</th>
@@ -17,12 +14,9 @@
          
       <tr>
                <td><%= teacher.name %></td>
-               <td><%= teacher.age %></td>
-               <td><%= teacher.qualification %></td>
-               <td><%= teacher.salary %></td>
                <td><%= teacher.email %></td>
                <td><%= teacher.password %></td>
-               <td><%= teacher.branch %></td>
+               <td><%= teacher.branch.name %></td>
       </tr>
     </table>
   <% end %>

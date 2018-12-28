@@ -5,6 +5,7 @@ class ResultsController < ApplicationController
   # GET /results.json
   def index
     @results = Result.all
+    # @branch_results = Result.where(branch_id: session[:licensee_branch_id])
   end
 
   # GET /results/1

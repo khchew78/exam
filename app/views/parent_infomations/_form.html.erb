@@ -1,0 +1,48 @@
+<%= form_with(model: parent_infomation, local: true) do |form| %>
+  <% if parent_infomation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(parent_infomation.errors.count, "error") %> prohibited this parent_infomation from being saved:</h2>
+
+      <ul>
+      <% parent_infomation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <%= form.label :parent_id %>
+      <%= form.select :parent_id, Parent.all.map {|parent| [parent.name, parent.id] }, { include_blank: "Please select your display name" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :age %>
+    <%= form.text_field :age %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ic_number %>
+    <%= form.text_field :ic_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :occupation %>
+    <%= form.text_field :occupation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_id %><br />
+    <%= form.radio_button :type_id, 1 %> Father<br />
+    <%= form.radio_button :type_id, 2 %> Mother<br />
+ </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

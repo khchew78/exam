@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_16_115406) do
+ActiveRecord::Schema.define(version: 2018_12_18_064205) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -85,6 +85,17 @@ ActiveRecord::Schema.define(version: 2018_12_16_115406) do
     t.index ["branch_id"], name: "index_licensees_on_branch_id"
   end
 
+  create_table "parent_infomations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "parent_id"
+    t.string "name"
+    t.string "age"
+    t.string "ic_number"
+    t.string "occupation"
+    t.string "type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "parents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -156,11 +167,9 @@ ActiveRecord::Schema.define(version: 2018_12_16_115406) do
 
   create_table "teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "age", null: false
-    t.string "qualification", null: false
-    t.string "salary", null: false
-    t.string "branch"
     t.string "branch_id"
+    t.string "type_id"
+    t.string "classroom_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"

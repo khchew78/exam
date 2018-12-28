@@ -13,8 +13,9 @@
   </thead>
 
   <tbody>
-    <% @classrooms.each do |classroom| %>
-      <tr>
+    <% if session[:licensee_branch_id].present? %>
+      <% @branch_classrooms.each do |classroom| %>
+        <tr>
         <td><%= classroom.name %></td>
         <td>
           <% classroom.teacher_classrooms.each do |teacher_classroom| %>
@@ -25,11 +26,30 @@
         <td><%= link_to 'Show', classroom %></td>
         <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
         <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
+      <% end %>
+    <% else %> 
+      <% @classrooms.each do |classroom| %>
+        <tr>
+        <td><%= classroom.name %></td>
+        <td>
+          <% classroom.teacher_classrooms.each do |teacher_classroom| %>
+            <%= teacher_classroom.teacher.name %>, 
+          <% end %>
+        </td>
+        <td><%= classroom.branch_id %></td>
+        <td><%= link_to 'Show', classroom %></td>
+        <td><%= link_to 'Edit', edit_classroom_path(classroom) %></td>
+        <td><%= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Classroom', new_classroom_path %>
+<% if session[:licensee_branch_id].present? %>
+  <%= link_to 'Back', licensee_page_main_page_index_path %> | <%= link_to 'New Classroom', new_classroom_path %>
+<% else %>
+  <%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Classroom', new_classroom_path %>
+<% end %>

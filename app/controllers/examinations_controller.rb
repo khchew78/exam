@@ -5,6 +5,7 @@ class ExaminationsController < ApplicationController
   # GET /examinations.json
   def index
     @examinations = Examination.all
+    @branch_examinations = Examination.where(branch_id: session[:licensee_branch_id])
   end
 
   # GET /examinations/1

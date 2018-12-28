@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
   # GET /teachers.json
   def index
     @teachers = Teacher.all
+    @branch_teachers = Teacher.where(branch_id: session[:licensee_branch_id])
   end
 
   # GET /teachers/1
@@ -87,7 +88,7 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:name, :age, :qualification, :salary, :branch, :branch_id, :email, :password)
+      params.require(:teacher).permit(:name, :branch_id, :email, :password, :type_id, :classroom_id)
     end
     
     def teacher_classroom_params

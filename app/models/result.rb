@@ -1,5 +1,6 @@
 class Result < ApplicationRecord
     belongs_to :examination
     belongs_to :student
-    belongs_to :subject
+    has_many :subjects
+    belongs_to :branch
 end
