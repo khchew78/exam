@@ -45,5 +45,19 @@
   <%= @student.parent.name %>
 </p>
 
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @student.image.variant(resize: "200x200") if @student.image.attached? %>
+</p>
+
+<!--<%# @results.each do |result| %>-->
+<!--  <%# if result.student_id == student.id %>-->
+<!--    <p>-->
+<!--      <strong>English:</strong>-->
+<!--      <%#= result.english %>-->
+<!--    </p>-->
+<!--  <%# end %>-->
+<!--<%# end %>-->
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

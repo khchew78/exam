@@ -26,28 +26,36 @@
 </p>
 
 <p>
-  <strong>classroom:</strong>
-  
-            <%= @teacher.classroom_id %>,
+ <strong>Assigned classrooms:</strong>
+ <% @teacher.classrooms.each do |classroom|  %>
+   <%= classroom.name %>
+ <% end %>
+</p>
+
+<p>
+ <strong>Assigned subjects:</strong>
+ <% @teacher.subjects.each do |subject|  %>
+   <%= subject.title %>
+ <% end %>
 </p>
 
 
-<hr></hr>
-<h2>Subject for teacher</h2>
-<%= form_with(url: create_teacher_subject_teachers_path, model: TeacherSubject.new(teacher_id: @teacher.id), local: true) do |form| %>
+<!--<hr></hr>-->
+<!--<h2>Subject for teacher</h2>-->
+<!--<%#= form_with(url: create_teacher_subject_teachers_path, model: TeacherSubject.new(teacher_id: @teacher.id), local: true) do |form| %>-->
   
-  <div class="field">
-    <%= form.hidden_field :teacher_id %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%#= form.hidden_field :teacher_id %>-->
+<!--  </div>-->
 
-  <div class="field">
-    <%= form.label :subject_id %>
-    <%= form.select :subject_id, Subject.order(:title).map { |subject| [ subject.title, subject.id ] }, include_blank: "Please select subject" %>
-  </div>
+<!--  <div class="field">-->
+<!--    <%#= form.label :subject_id %>-->
+<!--    <%#= form.select :subject_id, Subject.order(:title).map { |subject| [ subject.title, subject.id ] }, include_blank: "Please select subject" %>-->
+<!--  </div>-->
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<!--  <div class="actions">-->
+<!--    <%#= form.submit %>-->
+<!--  </div>-->
+<!--<%# end %>-->
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
 <%= link_to 'Back', teachers_path %>

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Address</th>
       <th>Phone</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @branches.each do |branch| %>
       <tr>
+        <td><%= image_tag branch.image.variant(resize: "200x200") if branch.image.attached? %></td>
         <td><%= branch.name %></td>
         <td><%= branch.address %></td>
         <td><%= branch.phone %></td>

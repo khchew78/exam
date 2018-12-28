@@ -1,0 +1,30 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+<h2> KIDDOY branches</h2>
+  
+  <table class="table table-dark table-hover">
+    <thead>
+      <tr>
+        <th style="width:30%"></th>
+        <th style="width:70%"></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @branches.each do |branch| %>
+        <tr>
+          <td><%= image_tag branch.image.variant(resize: "300x300") if branch.image.attached? %></td>
+          <td style="text-align: left">
+            <h4>Name: <%= branch.name %></h4><br><br>
+            <h4>Address: <%= branch.address %></h4><br><br>
+            <h4>Phone: <%= branch.phone %></h4>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <br>
+  
+    <p class="center_text"><%= link_to 'Back', main_page_index_path %></p>
+</div>

@@ -4,4 +4,5 @@ class Teacher < ApplicationRecord
     belongs_to :branch
     has_many :teacher_subjects
     has_many :subjects, through: :teacher_subjects
+    
 end

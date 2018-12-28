@@ -16,8 +16,9 @@
   </thead>
 
   <tbody>
-    <% @parent_infomations.each do |parent_infomation| %>
-      <tr>
+    <% if session[:licensee_branch_id].present? %>
+      <% @branch_parent_infomations.each do |parent_infomation| %>
+        <tr>
         <td><%= parent_infomation.parent_id %></td>
         <td><%= parent_infomation.name %></td>
         <td><%= parent_infomation.age %></td>
@@ -27,11 +28,29 @@
         <td><%= link_to 'Show', parent_infomation %></td>
         <td><%= link_to 'Edit', edit_parent_infomation_path(parent_infomation) %></td>
         <td><%= link_to 'Destroy', parent_infomation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        </tr>
+      <% end %>
+    <% else %>
+      <% @parent_infomations.each do |parent_infomation| %>
+        <tr>
+        <td><%= parent_infomation.parent_id %></td>
+        <td><%= parent_infomation.name %></td>
+        <td><%= parent_infomation.age %></td>
+        <td><%= parent_infomation.ic_number %></td>
+        <td><%= parent_infomation.occupation %></td>
+        <td><%= parent_infomation.type_id %></td>
+        <td><%= link_to 'Show', parent_infomation %></td>
+        <td><%= link_to 'Edit', edit_parent_infomation_path(parent_infomation) %></td>
+        <td><%= link_to 'Destroy', parent_infomation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Parent Infomation', new_parent_infomation_path %>
+<% if session[:licensee_branch_id].present? %>
+  <%= link_to 'Back', licensee_page_main_page_index_path %> | <%= link_to 'New Parent Infomation', new_parent_infomation_path %>
+<% else %>
+  <%= link_to 'Back', admin_page_main_page_index_path %> | <%= link_to 'New Parent Infomation', new_parent_infomation_path %>
+<% end %>

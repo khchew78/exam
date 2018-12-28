@@ -4,20 +4,37 @@
   
 <% @teachers.each do |teacher| %>
   <% if teacher.id == session[:teacher_id] %>
-    <table class="table table-striped">
-      <tr>
-           <th style="width:20%">Name</th>
-           <th style="width:15%">Email</th>
-           <th style="width:15%">Password</th>
-           <th style="width:15%">Branch</th>
-      </tr>
-         
-      <tr>
-               <td><%= teacher.name %></td>
-               <td><%= teacher.email %></td>
-               <td><%= teacher.password %></td>
-               <td><%= teacher.branch.name %></td>
-      </tr>
-    </table>
+    <p>
+      <strong>Email:</strong>
+      <%= teacher.email %>
+    </p>
+
+    <p>
+      <strong>Password:</strong>
+      <%= teacher.password %>
+    </p>
+
+    <p>
+      <strong>Branch:</strong>
+      <%= teacher.branch.name %>
+    </p>
+
+    <p>
+      <strong>Assigned classrooms:</strong>
+      <% teacher.classrooms.each do |classroom|  %>
+      <%= classroom.name %>
+      <% end %>
+    </p>
+
+    <p>
+      <strong>Assigned subjects:</strong>
+      <% teacher.subjects.each do |subject|  %>
+      <%= subject.title %>
+      <% end %>
+    </p>
+
   <% end %>
 <% end %>
+
+<%= link_to 'Student Profile', students_path %>
+<%= link_to 'Exam Result', results_path %>

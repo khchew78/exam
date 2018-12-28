@@ -31,23 +31,24 @@
       <%= form.select :branch_id, Branch.all.map {|branch| [branch.name, branch.id] }, { include_blank: "Please select your branch name" } %>
   </div>
   
-  <div class="field">
-    <%= form.label :type_id %><br />
-    <%= form.radio_button :type_id, "1" %> Licensee<br />
-    <%= form.radio_button :type_id, "2" %> Teacher<br />
- </div>
+ <!-- <div class="field">-->
+ <!--   <%#= form.label :type_id %><br />-->
+ <!--   <%#= form.radio_button :type_id, "1" %> Licensee<br />-->
+ <!--   <%#= form.radio_button :type_id, "2" %> Teacher<br />-->
+ <!--</div>-->
  
  <div class="field">
    <%= form.label :classroom_id %><br>
     <%= hidden_field_tag "teacher[classroom_ids][]", nil %>
     <% Classroom.all.each do |classroom| %>
-      <%= check_box_tag "teacher[classroom_ids][]", classroom.id, @teacher.classroom_ids.include?(classroom.id), id: dom_id(classroom) %>
-      <%= label_tag dom_id(classroom), classroom.name %><br>
+      <%= check_box_tag "teacher[classroom_ids][]", classroom.id, @teacher.classroom_ids.include?(classroom.id) %>
+      <%= classroom.name %><br>
     <% end %>
   </div>
   
   <div class="field">
    <%= form.label :subject_id %><br>
+    <%= hidden_field_tag "teacher[subject_ids][]", nil %>
     <% Subject.all.each do |subject| %>
       <%= check_box_tag "teacher[subject_ids][]", subject.id, @teacher.subject_ids.include?(subject.id) %>
       <%= subject.title %><br>

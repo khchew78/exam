@@ -55,6 +55,11 @@
       <%= form.label :parent_id %>
       <%= form.select :parent_id, Parent.all.map {|parent| [parent.name, parent.id] }, { include_blank: "Please select your parent name" } %>
   </div>
+  
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

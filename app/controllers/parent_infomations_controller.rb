@@ -5,6 +5,7 @@ class ParentInfomationsController < ApplicationController
   # GET /parent_infomations.json
   def index
     @parent_infomations = ParentInfomation.all
+    @branch_parent_infomations = ParentInfomation.where(branch_id: session[:licensee_branch_id])
   end
 
   # GET /parent_infomations/1

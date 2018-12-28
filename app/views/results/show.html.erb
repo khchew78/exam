@@ -2,22 +2,32 @@
 
 <p>
   <strong>Test:</strong>
-  <%= @result.examination_id %>
-</p>
-
-<p>
-  <strong>Subkect:</strong>
-  <%= @result.subject_id %>
+  <%= @result.examination.title %>
 </p>
 
 <p>
   <strong>Student:</strong>
-  <%= @result.student_id %>
+  <%= @result.student.name %>
 </p>
 
 <p>
-  <strong>Result:</strong>
-  <%= @result.result %>
+  <strong>English:</strong>
+  <%= @result.english %>
+</p>
+
+<p>
+  <strong>Chinese:</strong>
+  <%= @result.chinese %>
+</p>
+
+<p>
+  <strong>Math:</strong>
+  <%= @result.math %>
+</p>
+
+<p>
+  <strong>Malay:</strong>
+  <%= @result.malay %>
 </p>
 
 <%= link_to 'Edit', edit_result_path(@result) %> |

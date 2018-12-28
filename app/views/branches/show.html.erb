@@ -15,5 +15,10 @@
   <%= @branch.phone %>
 </p>
 
+<p>
+  <strong>Photo:</strong>
+  <%= image_tag @branch.image.variant(resize: "200x200") if @branch.image.attached? %>
+</p>
+
 <%= link_to 'Edit', edit_branch_path(@branch) %> |
 <%= link_to 'Back', branches_path %>

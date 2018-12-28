@@ -28,6 +28,9 @@ Rails.application.routes.draw do
       get "teacher_page"
       get "licensee_page"
       get "admin_page"
+      get "bullentin_page"
+      get "photo_gallery_page"
+      get "branch_page"
     end
   end
   

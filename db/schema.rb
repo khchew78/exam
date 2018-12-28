@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_18_064205) do
+ActiveRecord::Schema.define(version: 2018_12_27_062640) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -111,11 +111,14 @@ ActiveRecord::Schema.define(version: 2018_12_18_064205) do
 
   create_table "results", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "examination_id"
-    t.string "subject_id"
     t.string "student_id"
-    t.string "result"
+    t.string "english"
+    t.string "chinese"
+    t.string "math"
+    t.string "malay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "branch_id"
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

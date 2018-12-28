@@ -14,7 +14,7 @@
     
     <tr>
       <th>Photo</th>
-      <td><%= image_tag @photo_gallery.image.variant(resize: "200x200") if@photo_gallery.image.attached? %></td>
+      <td><%= image_tag @photo_gallery.image.variant(resize: "200x200") if @photo_gallery.image.attached? %></td>
     </tr>
   </table>
   

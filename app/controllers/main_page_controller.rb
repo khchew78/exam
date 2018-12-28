@@ -21,4 +21,16 @@ class MainPageController < ApplicationController
   def admin_page
     
   end
+  
+  def bullentin_page
+    @bullentins = Bullentin.all
+  end
+  
+  def photo_gallery_page
+    @photo_galleries = PhotoGallery.all
+  end
+  
+  def branch_page
+    @branches = Branch.all
+  end
 end

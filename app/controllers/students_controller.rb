@@ -6,6 +6,9 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
     @branch_students = Student.where(branch_id: session[:licensee_branch_id])
+    @results = Result.all
+    @branch_parent_students = Student.where(branch_id: session[:parent_branch_id])
+    @branch_teacher_students = Student.where(branch_id: session[:teacher_branch_id])
   end
 
   # GET /students/1
@@ -70,6 +73,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :age, :gender, :address, :weight, :height, :branch_id, :classroom_id, :parent_id)
+      params.require(:student).permit(:name, :age, :gender, :address, :weight, :height, :branch_id, :classroom_id, :parent_id, :image)
     end
 end

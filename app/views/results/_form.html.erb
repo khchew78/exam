@@ -17,18 +17,28 @@
   </div>
 
   <div class="field">
-      <%= form.label :subject_id %>
-      <%= form.select :subject_id, Subject.all.map {|subject| [subject.title, subject.id] }, { include_blank: "Please select your subject name" } %>
-  </div>
-
-  <div class="field">
       <%= form.label :student_id %>
       <%= form.select :student_id, Student.all.map {|student| [student.name, student.id] }, { include_blank: "Please select your student name" } %>
   </div>
 
   <div class="field">
-    <%= form.label :result %>
-    <%= form.text_field :result %>
+    <%= form.label :english %>
+    <%= form.text_field :english %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :chinese %>
+    <%= form.text_field :chinese %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :math %>
+    <%= form.text_field :math %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :malay %>
+    <%= form.text_field :malay %>
   </div>
 
   <div class="actions">

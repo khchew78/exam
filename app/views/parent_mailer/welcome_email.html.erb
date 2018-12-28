@@ -1,0 +1,13 @@
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+        
+       <%#= image_tag "logo.jpg" %>
+        
+      <h1 class="display-4 font-italic">Hi, <%= @parent.name %></h1>
+      <p class="lead my-3">Thank you for choosing Kiddoy. Below are you login name and password to access our website.</p>
+      <p>Login name: <%= @parent.email %></p>
+      <p>Password: <%= @parent.password %></p>
+      <%#= link_to 'Login To Check Your Children Detail', parent_login_url, host: b4575f1cb4604756a471a29cae2c2a04.vfs.cloud9.us-east-2.amazonaws.com %>
+      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+    </div>
+</div>

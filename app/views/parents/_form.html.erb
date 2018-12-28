@@ -29,10 +29,6 @@
           <td><%= form.text_field :password %></td>
         </tr>
         
-        <tr>
-          <th><%= form.label :student_id %></th>
-          <td><%= form.select :student_id, Student.all.map {|student| [student.name, student.id] }, { include_blank: "Please select your children name" } %></td>
-        </tr>
       </table>
     </div>
   

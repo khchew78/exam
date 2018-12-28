@@ -1,0 +1,13 @@
+<h2>KIDDOY BULLENTIN CORNER</h2><br>
+
+<% @bullentins.each do |bullentin| %>
+
+  <ul style="font-size: 25px">
+    <li>Topic : <%= bullentin.topis %></li><br>
+    <p style="font-size: 15px">Date : <%= bullentin.date %></p>
+    <p style="font-size: 15px"><%= bullentin.content %></p>
+    <br>
+ </ul>
+<% end %>
+
+<%= link_to 'Back', main_page_index_path %>

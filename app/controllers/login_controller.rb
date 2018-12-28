@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-  # layout "login"
+  layout "login"
   def new
   end 
   
@@ -70,6 +70,7 @@ class LoginController < ApplicationController
         flash[:notice] = "You are signed in as teacher successfully"
         session[:teacher_id] = teacher.id
         session[:teacher_name] = teacher.name
+        session[:teacher_branch_id] = teacher.branch.id
         redirect_to teacher_page_main_page_index_path
       # end
     else
@@ -81,6 +82,7 @@ class LoginController < ApplicationController
   def destroy_teacher_session
     session[:teacher_id] = nil
     session[:teacher_name] = nil
+    session[:teacher_branch_id] = nil
     # session[:licensee_id] = nil
     # session[:licensee_name] = nil
     # session[:licensee_branch_id] = nil
@@ -99,6 +101,7 @@ class LoginController < ApplicationController
       flash[:notice] = "You are signed in as parent successfully"
       session[:parent_id] = parent.id
       session[:parent_name] = parent.name
+      session[:parent_branch_id] = parent.branch.id
       redirect_to parent_page_main_page_index_path
     else
       flash[:alert] = "Email and passwords is incorrect"
@@ -109,7 +112,8 @@ class LoginController < ApplicationController
   def destroy_parent_session
     session[:parent_id] = nil
     session[:parent_name] = nil
+    session[:parent_branch_id] = nil
     flash[:notice] = "You are signed out successfully"
-    redirect_to parent_login_path
+    redirect_to main_page_index_path
   end
 end

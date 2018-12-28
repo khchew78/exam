@@ -5,7 +5,7 @@ class ResultsController < ApplicationController
   # GET /results.json
   def index
     @results = Result.all
-    # @branch_results = Result.where(branch_id: session[:licensee_branch_id])
+    @branch_parent_results = Result.where(branch_id: session[:parent_branch_id])
   end
 
   # GET /results/1
@@ -70,6 +70,6 @@ class ResultsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def result_params
-      params.require(:result).permit(:examination_id, :subject_id, :student_id, :result)
+      params.require(:result).permit(:examination_id, :student_id, :english, :chinese, :math, :malay, :branch_id)
     end
 end

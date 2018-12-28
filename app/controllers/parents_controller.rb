@@ -6,6 +6,7 @@ class ParentsController < ApplicationController
   def index
     @parents = Parent.all
     @branch_parents = Parent.where(branch_id: session[:licensee_branch_id])
+    @branch_students = Student.where(branch_id: session[:parent_branch_id])
   end
 
   # GET /parents/1
@@ -29,6 +30,7 @@ class ParentsController < ApplicationController
 
     respond_to do |format|
       if @parent.save
+        ParentMailer.welcome_email(@parent.id).deliver_now
         format.html { redirect_to @parent, notice: 'Parent was successfully created.' }
         format.json { render :show, status: :created, location: @parent }
       else
