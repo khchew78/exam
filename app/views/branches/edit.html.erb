@@ -2,5 +2,8 @@
 
 <%= render 'form', branch: @branch %>
 
-<%= link_to 'Show', @branch %> |
-<%= link_to 'Back', branches_path %>
+<p>
+    <%= link_to '<button type="button" class="btn btn-primary">Show</button>'.html_safe, @branch %> 
+    &nbsp;&nbsp;&nbsp; 
+    <%= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, branches_path %>
+</p>

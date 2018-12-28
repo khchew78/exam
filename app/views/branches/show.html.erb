@@ -1,19 +1,44 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @branch.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @branch.address %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @branch.phone %>
-</p>
-
-<%= link_to 'Edit', edit_branch_path(@branch) %> |
-<%= link_to 'Back', branches_path %>
+<div class="container">
+  <br>
+  <p id="notice"><%= notice %></p>
+  <br>
+  
+  <!--<table class="table table-dark table-hover">-->
+  <!--  <tr>-->
+  <!--    <th>Name</th>-->
+  <!--    <td><%#= @branch.name %></td>-->
+  <!--  </tr>-->
+    
+  <!--  <tr>-->
+  <!--    <th>Address</th>-->
+  <!--    <td><%#= @branch.address %></td>-->
+  <!--  </tr>-->
+    
+  <!--  <tr>-->
+  <!--    <th>Phone</th>-->
+  <!--    <td><%#= @branch.phone %></td>-->
+  <!--  </tr>-->
+    
+  <!--  <tr>-->
+  <!--    <th colspan="2" class="center_text">-->
+  <!--      <%#= link_to '<button type="button" class="btn btn-primary">Edit</button>'.html_safe, edit_branch_path(@branch) %> -->
+  <!--      &nbsp;&nbsp;&nbsp;-->
+  <!--      <%#= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, branches_path %>-->
+  <!--    </th>-->
+  <!--  </tr>-->
+  <!--</table>-->
+  
+  <div class="classroom">
+    <p>Name of Branch: <span><%= @branch.name %></span></p>
+    <br>
+    <p>Address: <span><%= @branch.address %></span></p>
+    <br>
+    <p>Phone Number: <span><%= @branch.phone %></span></p>
+    <br>
+    <p>
+      <%= link_to '<button type="button" class="btn btn-primary">Edit</button>'.html_safe, edit_branch_path(@branch) %>
+      &nbsp;&nbsp;&nbsp;
+      <%= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, branches_path %>
+    </p>
+  </div>
+</div>

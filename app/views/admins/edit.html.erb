@@ -1,6 +1,11 @@
-<h1>Editing Admin</h1>
-
-<%= render 'form', admin: @admin %>
-
-<%= link_to 'Show', @admin %> |
-<%= link_to 'Back', admins_path %>
+<div class="container">
+    <h1>Editing Admin</h1>
+    
+    <%= render 'form', admin: @admin %>
+    
+    <p>
+        <%= link_to '<button type="button" class="btn btn-primary">Show</button>'.html_safe, @admin %> 
+        &nbsp;&nbsp;&nbsp; 
+        <%= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, admins_path %>
+    </p>
+</div>

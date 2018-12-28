@@ -1,19 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @admin.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @admin.email %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @admin.password %>
-</p>
-
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+<div class="container">
+  <br>
+  <p id="notice" class="center_text"><%= notice %></p>
+  <br>
+  <!--<table class="table table-dark table-hover">-->
+  <!--  <tr>-->
+  <!--    <th>Name</th>-->
+  <!--    <td><%#= @admin.name %></td>-->
+  <!--  </tr>-->
+    
+  <!--  <tr>-->
+  <!--    <th>Email</th>-->
+  <!--    <td><%#= @admin.email %></td>-->
+  <!--  </tr>-->
+    
+  <!--  <tr>-->
+  <!--    <th>Password</th>-->
+  <!--    <td><%#= @admin.password %></td>-->
+  <!--  </tr>-->
+    
+  <!--  <tr>-->
+  <!--    <th colspan="2" class="center_text">-->
+  <!--      <%#= link_to '<button type="button" class="btn btn-primary">Edit</button>'.html_safe, edit_admin_path(@admin) %> -->
+  <!--      &nbsp;&nbsp;&nbsp;-->
+  <!--      <%#= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, admins_path %>-->
+  <!--    </th>-->
+  <!--  </tr>-->
+  <!--</table>-->
+  
+  <div class="classroom">
+    <p>Name: <span><%= @admin.name %></span></p>
+    <br>
+    <p>Email: <span><%= @admin.email %></span></p>
+    <br>
+    <p>Password: <span><%= @admin.password %></span></p>
+    <br>
+    <p>
+      <%= link_to '<button type="button" class="btn btn-primary">Edit</button>'.html_safe, edit_admin_path(@admin) %> 
+      &nbsp;&nbsp;&nbsp;
+      <%= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, admins_path %>
+    </p>
+  </div>
+</div>

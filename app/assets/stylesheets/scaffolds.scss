@@ -41,8 +41,13 @@ td {
 }
 
 div {
-  &.field, &.actions {
+  &.field {
     margin-bottom: 10px;
+  }
+  
+  &.actions {
+    margin-bottom: 10px;
+    text-align: center;
   }
 }
 
@@ -81,4 +86,8 @@ div {
 
 label {
   display: block;
+}
+
+h1, p {
+  text-align: center;
 }

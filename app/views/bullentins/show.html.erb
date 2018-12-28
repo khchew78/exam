@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Topis:</strong>
-  <%= @bullentin.topis %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @bullentin.date %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @bullentin.content %>
-</p>
-
-<%= link_to 'Edit', edit_bullentin_path(@bullentin) %> |
-<%= link_to 'Back', bullentins_path %>
+<div class="container">
+  <br>
+  <p id="notice"><%= notice %></p>
+  <br>
+  <div class="classroom">
+    <p>Topis: <span><%= @bullentin.topis %></span></p>
+    <br>
+    <p>Date: <span><%= @bullentin.date %></span></p>
+    <br>
+    <p>Content: <span>= @bullentin.content %></span></p>
+    <br>
+    <p>
+      <%= link_to '<button type="button" class="btn btn-primary">Edit</button>'.html_safe, edit_bullentin_path(@bullentin) %>
+      &nbsp;&nbsp;&nbsp;
+      <%= link_to '<button type="button" class="btn btn-primary">Back</button>'.html_safe, bullentins_path %>
+    </p>
+  </div>
+</div>

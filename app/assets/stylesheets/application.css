@@ -34,3 +34,12 @@
 .center_text {
   text-align: center;
 }
+
+.classroom {
+  /*border-bottom:1px solid #CCCCCC;*/
+  border-style: outset;
+}
+
+/*.classroom:last-child {*/
+/*  border-bottom:0;*/
+/*}*/
